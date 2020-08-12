@@ -82,7 +82,7 @@ def getcook():
     driver.find_element_by_id('wcode').clear()  # 获取用户名输入框，并先清空
     driver.find_element_by_id('wcode').send_keys(u'WHBK')  # 输入用户名
     driver.find_element_by_id('password').clear()  # 获取密码框，并清空
-    driver.find_element_by_id('password').send_keys(u'000000')  # 输入密码
+    driver.find_element_by_id('password').send_keys(u'')  # 输入密码
 
     #captcha = driver.find_element_by_id('captcha_image')  # 获取验证码标签
     #submit = driver.find_element_by_css_selector('a[name="登录"]')  # 获取提交按钮
@@ -112,11 +112,11 @@ def login():
     s=requests.Session()
     r=s.post(
       url='http://113.57.169.227:8088/ccps/validateStaff.action',headers=headers1,
-      data="staff.wcode=WHBK&staff.alias=WHBK&staff.password=000000")
+      data="staff.wcode=WHBK&staff.alias=WHBK&staff.password=")
     time.sleep(1)
     q=s.post(
       url="http://113.57.169.227:8088/ccps/login.action",headers=headers2,
-      data="staff.wcode=WHBK&staff.password=000000")
+      data="staff.wcode=WHBK&staff.password=")
     #print(q.text)
     time.sleep(1)
     return s
